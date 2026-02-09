@@ -1,0 +1,172 @@
+/* Tabs */
+"tab.scan" = "Escanear";
+"tab.history" = "Historial";
+"tab.restaurants" = "Restaurantes";
+"tab.settings" = "Ajustes";
+
+/* MenuScannerView */
+"scanner.title" = "Escanear Menú";
+"scanner.subtitle" = "Escanea menús y obtén calorías al instante";
+"scanner.restaurant_placeholder" = "Nombre del restaurante";
+"scanner.take_photo" = "Tomar foto";
+"scanner.select_gallery" = "Galería";
+"scanner.manual_input" = "Ingresar manualmente";
+"scanner.loading_hint" = "Esto puede tomar unos segundos...";
+"scanner.retry" = "Reintentar";
+"scanner.manual_title" = "Texto del menú";
+"scanner.analyze" = "Analizar";
+"scanner.select_restaurant" = "Seleccionar restaurante";
+
+/* ScanPhase */
+"phase.scanning" = "Escaneando texto...";
+"phase.analyzing" = "Analizando con IA...";
+"phase.done" = "Listo";
+
+/* ViewModel Errors */
+"error.empty_text" = "El texto está vacío.";
+
+/* ResultsView */
+"results.title" = "Resultados";
+"results.new_scan" = "Nuevo Escaneo";
+"results.total_calories" = "calorías totales estimadas";
+"results.dishes_detected" = "%d platos detectados";
+"results.disclaimer" = "Las calorías son estimaciones aproximadas basadas en inteligencia artificial. Para información nutricional precisa, consulta a un profesional.";
+
+/* DishDetailSheet */
+"detail.description" = "Descripción";
+"detail.confidence" = "Confianza";
+"detail.notes" = "Notas";
+
+/* HistoryView */
+"history.title" = "Historial";
+"history.empty_title" = "Sin historial aún";
+"history.empty_subtitle" = "Aquí aparecerán tus escaneos recientes.";
+"history.default_name" = "Menú escaneado";
+"history.dishes_count" = "%d platos";
+"history.calories" = "%d cal";
+"history.stats_scans" = "Escaneos";
+"history.stats_dishes" = "Platos";
+"history.stats_calories" = "Calorías";
+"history.unknown_restaurant" = "Restaurante desconocido";
+
+/* Default Restaurant */
+"restaurant.default_name" = "Tu";
+"restaurant.default_description" = "Tu registro personal de comidas";
+"default.restaurant_name" = "Tú";
+
+/* RestaurantsView */
+"restaurants.title" = "Restaurantes";
+"restaurants.search" = "Buscar restaurantes";
+"restaurants.empty_title" = "Sin restaurantes aún";
+"restaurants.empty_subtitle" = "Agrega tus restaurantes favoritos para rastrear fácilmente tus escaneos";
+"restaurants.add_first" = "Agregar Restaurante";
+"restaurants.scan_count" = "%d escaneos";
+"restaurants.total_cal" = "%d cal";
+"restaurants.last_scan" = "Último escaneo: %@";
+
+/* RestaurantDetailView */
+"restaurant.info_section" = "Información";
+"restaurant.stats_section" = "Estadísticas";
+"restaurant.scans_section" = "Escaneos";
+"restaurant.total_scans" = "Escaneos";
+"restaurant.total_calories" = "Cal Totales";
+"restaurant.date_added" = "Agregado";
+"restaurant.no_scans" = "Aún no hay escaneos para este restaurante";
+"restaurant.edit" = "Editar";
+"restaurant.delete" = "Eliminar";
+"restaurant.delete_title" = "¿Eliminar Restaurante?";
+"restaurant.delete_message" = "Esto eliminará el restaurante pero mantendrá sus escaneos en el historial.";
+
+/* AddRestaurantSheet / EditRestaurantSheet */
+"restaurant.add_title" = "Nuevo Restaurante";
+"restaurant.add_header" = "Agregar un nuevo restaurante";
+"restaurant.edit_title" = "Editar Restaurante";
+"restaurant.name_section" = "Nombre";
+"restaurant.name_placeholder" = "Nombre del restaurante";
+"restaurant.address_section" = "Dirección";
+"restaurant.address_placeholder" = "Dirección (opcional)";
+"restaurant.notes_section" = "Notas";
+"restaurant.notes_placeholder" = "Agrega notas sobre este restaurante...";
+
+/* Common */
+"common.cancel" = "Cancelar";
+"common.save" = "Guardar";
+"common.delete" = "Eliminar";
+"common.edit" = "Editar";
+"common.ok" = "OK";
+
+/* Usage Limits */
+"usage.remaining" = "%d escaneos gratis hoy";
+"usage.limit_reached" = "Límite diario alcanzado";
+"usage.premium" = "Usuario premium";
+"usage.time_hours" = "%dh %dm para reinicio";
+"usage.time_minutes" = "%dm para reinicio";
+
+/* Paywall */
+"paywall.title" = "Desbloquea Escaneos Ilimitados";
+"paywall.subtitle" = "Obtén la experiencia completa con escaneos diarios ilimitados";
+"paywall.reset_time" = "Escaneo gratis se reinicia en %@";
+"paywall.per_month" = "por mes";
+"paywall.subscribe" = "Suscribirse Ahora";
+"paywall.restore" = "Restaurar Compras";
+"paywall.terms" = "La suscripción se renueva automáticamente cada mes. Cancela en cualquier momento desde Configuración. Al suscribirte aceptas nuestros Términos de Servicio y Política de Privacidad.";
+"paywall.feature.unlimited" = "Escaneos Ilimitados";
+"paywall.feature.unlimited_desc" = "Escanea todos los menús que quieras";
+"paywall.feature.fast" = "Procesamiento Prioritario";
+"paywall.feature.fast_desc" = "Análisis de IA más rápido";
+"paywall.feature.restaurants" = "Seguimiento de Restaurantes";
+"paywall.feature.restaurants_desc" = "Organiza escaneos por restaurante";
+"paywall.feature.history" = "Historial Completo";
+"paywall.feature.history_desc" = "Accede a tu historial completo de escaneos";
+"paywall.feature_privacy" = "Protección de Privacidad";
+
+/* Store Errors */
+"store.error.title" = "Error de Compra";
+"store.error.verification" = "No se pudo verificar la compra";
+"store.error.purchase" = "La compra falló. Por favor intenta de nuevo.";
+
+/* Settings */
+"settings.title" = "Ajustes";
+"settings.usage_section" = "Uso Diario";
+"settings.about_section" = "Acerca de";
+"settings.version" = "Versión";
+"settings.privacy" = "Política de Privacidad";
+"settings.terms" = "Términos de Servicio";
+"settings.restore" = "Restaurar Compras";
+"settings.premium_active" = "Premium Activo";
+"settings.premium_inactive" = "Obtener Premium";
+"settings.premium_desc_active" = "Tienes escaneos ilimitados";
+"settings.premium_desc_inactive" = "Obtén escaneos diarios ilimitados";
+"settings.upgrade" = "Mejorar";
+"settings.free_scans" = "Escaneos gratis hoy";
+"settings.reset_time" = "Se reinicia en %@";
+
+/* CalorieGaugeView */
+"calories.unit" = "cal";
+"calories.low" = "Bajo en calorías";
+"calories.moderate" = "Moderado";
+"calories.high" = "Alto";
+"calories.very_high" = "Muy alto";
+
+/* Confidence */
+"confidence.high" = "Alta confianza";
+"confidence.medium" = "Confianza media";
+"confidence.low" = "Baja confianza";
+
+/* ScanError */
+"error.no_text" = "No se detectó texto en la imagen.";
+"error.no_dishes" = "No se detectaron platos.";
+"error.no_camera" = "Cámara no disponible.";
+"error.api" = "Error de API: %@";
+
+/* GeminiService Errors */
+"error.invalid_response" = "Respuesta inválida del servidor";
+"error.invalid_url" = "URL inválida";
+"error.unexpected_format" = "Formato de respuesta inesperado";
+"error.data_conversion" = "No se pudo convertir la respuesta a datos";
+"error.too_many_requests" = "Demasiadas solicitudes. Intenta más tarde.";
+
+/* Estados de UI de escaneo */
+"scanning.loading" = "Escaneando...";
+"scanning.success" = "¡Escaneo completado!";
+"scanning.retry" = "Intentar de nuevo";

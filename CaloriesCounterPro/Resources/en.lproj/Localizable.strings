@@ -1,0 +1,176 @@
+/* Tabs */
+"tab.scan" = "Scan";
+"tab.history" = "History";
+"tab.restaurants" = "Restaurants";
+"tab.settings" = "Settings";
+
+/* MenuScannerView */
+"scanner.title" = "Scan Menu";
+"scanner.subtitle" = "Scan menus and get calories instantly";
+"scanner.restaurant_placeholder" = "Restaurant name";
+"scanner.take_photo" = "Take photo";
+"scanner.select_gallery" = "Gallery";
+"scanner.manual_input" = "Enter manually";
+"scanner.loading_hint" = "This may take a few seconds...";
+"scanner.retry" = "Retry";
+"scanner.manual_title" = "Menu text";
+"scanner.analyze" = "Analyze";
+"scanner.select_restaurant" = "Select restaurant";
+
+/* ScanPhase */
+"phase.scanning" = "Scanning text...";
+"phase.analyzing" = "Analyzing with AI...";
+"phase.done" = "Done";
+
+/* ViewModel Errors */
+"error.empty_text" = "Text is empty.";
+
+/* ResultsView */
+"results.title" = "Results";
+"results.new_scan" = "New Scan";
+"results.total_calories" = "total estimated calories";
+"results.dishes_detected" = "%d dishes detected";
+"results.disclaimer" = "Calories are approximate estimates based on artificial intelligence. For accurate nutritional information, consult a professional.";
+
+/* DishDetailSheet */
+"detail.description" = "Description";
+"detail.confidence" = "Confidence";
+"detail.notes" = "Notes";
+
+/* HistoryView */
+"history.title" = "History";
+"history.empty_title" = "No history yet";
+"history.empty_subtitle" = "Your recent scans will appear here.";
+"history.default_name" = "Scanned menu";
+"history.dishes_count" = "%d dishes";
+"history.calories" = "%d cal";
+"history.stats_scans" = "Scans";
+"history.stats_dishes" = "Dishes";
+"history.stats_calories" = "Calories";
+"history.unknown_restaurant" = "Unknown restaurant";
+
+/* Default Restaurant */
+"restaurant.default_name" = "Tu";
+"restaurant.default_description" = "Your personal food log";
+"default.restaurant_name" = "You";
+
+/* RestaurantsView */
+"restaurants.title" = "Restaurants";
+"restaurants.search" = "Search restaurants";
+"restaurants.empty_title" = "No restaurants yet";
+"restaurants.empty_subtitle" = "Add your favorite restaurants to easily track your scans";
+"restaurants.add_first" = "Add Restaurant";
+"restaurants.scan_count" = "%d scans";
+"restaurants.total_cal" = "%d cal";
+"restaurants.last_scan" = "Last scan: %@";
+
+/* RestaurantDetailView */
+"restaurant.info_section" = "Information";
+"restaurant.stats_section" = "Statistics";
+"restaurant.scans_section" = "Scans";
+"restaurant.total_scans" = "Scans";
+"restaurant.total_calories" = "Total Cal";
+"restaurant.date_added" = "Added";
+"restaurant.no_scans" = "No scans for this restaurant yet";
+"restaurant.edit" = "Edit";
+"restaurant.delete" = "Delete";
+"restaurant.delete_title" = "Delete Restaurant?";
+"restaurant.delete_message" = "This will remove the restaurant but keep its scans in history.";
+
+/* AddRestaurantSheet / EditRestaurantSheet */
+"restaurant.add_title" = "New Restaurant";
+"restaurant.add_header" = "Add a new restaurant";
+"restaurant.edit_title" = "Edit Restaurant";
+"restaurant.name_section" = "Name";
+"restaurant.name_placeholder" = "Restaurant name";
+"restaurant.address_section" = "Address";
+"restaurant.address_placeholder" = "Address (optional)";
+"restaurant.notes_section" = "Notes";
+"restaurant.notes_placeholder" = "Add notes about this restaurant...";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.ok" = "OK";
+
+/* Usage Limits */
+"usage.remaining" = "%d free scans left today";
+"usage.limit_reached" = "Daily limit reached";
+"usage.premium" = "Premium user";
+"usage.time_hours" = "%dh %dm until reset";
+"usage.time_minutes" = "%dm until reset";
+
+/* Paywall */
+"paywall.title" = "Unlock Unlimited Scans";
+"paywall.subtitle" = "Get the full experience with unlimited daily scans";
+"paywall.reset_time" = "Free scan resets in %@";
+"paywall.per_month" = "per month";
+"paywall.subscribe" = "Subscribe Now";
+"paywall.restore" = "Restore Purchases";
+"paywall.terms" = "Subscription automatically renews monthly. Cancel anytime in Settings. By subscribing you agree to our Terms of Service and Privacy Policy.";
+"paywall.feature.unlimited" = "Unlimited Scans";
+"paywall.feature.unlimited_desc" = "Scan as many menus as you want";
+"paywall.feature.fast" = "Priority Processing";
+"paywall.feature.fast_desc" = "Faster AI analysis";
+"paywall.feature.restaurants" = "Restaurant Tracking";
+"paywall.feature.restaurants_desc" = "Organize scans by restaurant";
+"paywall.feature.history" = "Full History";
+"paywall.feature.history_desc" = "Access your complete scan history";
+"paywall.feature_unlimited_scans" = "Unlimited Scans";
+"paywall.feature_history" = "Full History";
+"paywall.feature_privacy" = "Privacy Protection";
+
+/* Store Errors */
+"store.error.title" = "Purchase Error";
+"store.error.verification" = "Could not verify the purchase";
+"store.error.purchase" = "Purchase failed. Please try again.";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.usage_section" = "Daily Usage";
+"settings.about_section" = "About";
+"settings.version" = "Version";
+"settings.privacy" = "Privacy Policy";
+"settings.terms" = "Terms of Service";
+"settings.restore" = "Restore Purchases";
+"settings.premium_active" = "Premium Active";
+"settings.premium_inactive" = "Go Premium";
+"settings.premium_desc_active" = "You have unlimited scans";
+"settings.premium_desc_inactive" = "Get unlimited daily scans";
+"settings.upgrade" = "Upgrade";
+"settings.free_scans" = "Free scans today";
+"settings.reset_time" = "Resets in %@";
+
+/* CalorieGaugeView */
+"calories.unit" = "cal";
+"calories.low" = "Low calories";
+"calories.moderate" = "Moderate";
+"calories.high" = "High";
+"calories.very_high" = "Very high";
+
+/* Confidence */
+"confidence.high" = "High confidence";
+"confidence.medium" = "Medium confidence";
+"confidence.low" = "Low confidence";
+
+/* ScanError */
+"error.no_text" = "No text detected in the image.";
+"error.no_dishes" = "No dishes detected.";
+"error.no_camera" = "Camera not available.";
+"error.api" = "API error: %@";
+"error.too_many_requests" = "Too many requests. Try again later.";
+"error.empty_text" = "Text is empty.";
+
+/* GeminiService Errors */
+"error.invalid_response" = "Invalid server response";
+"error.invalid_url" = "Invalid URL";
+"error.unexpected_format" = "Unexpected response format";
+"error.data_conversion" = "Could not convert the response to data";
+"error.too_many_requests" = "We are serving too many users at the moment. Please try again later.";
+
+/* Scan UI States */
+"scanning.loading" = "Scanning...";
+"scanning.success" = "Scan completed successfully!";
+"scanning.retry" = "Try Again";
