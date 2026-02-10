@@ -1,0 +1,58 @@
+# Xcode
+DerivedData/
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/DerivedData/
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.xcsettings
+*.xcuserdatad
+*.DS_Store
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# App specific
+*.key
+*.plist~
+*.env
+*.log
+
+# User-specific files
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Localizations
+*.strings~
+
+# Ignore secrets and API keys
+Secrets/
+*.secret
+*.pem
+
+# Ignore by default
+.idea/
+.vscode/
+*.orig
