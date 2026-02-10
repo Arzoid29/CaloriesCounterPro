@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCA8BB122F3ADBDC009405CE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FCA8BB112F3ADBDC009405CE /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FCA8BA272F3A676C009405CE /* CaloriesCounterPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaloriesCounterPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA8BB112F3ADBDC009405CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -47,6 +52,7 @@
 			children = (
 				FCA8BA292F3A676C009405CE /* CaloriesCounterPro */,
 				FCA8BA282F3A676C009405CE /* Products */,
+				FCA8BB112F3ADBDC009405CE /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA8BB122F3ADBDC009405CE /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
