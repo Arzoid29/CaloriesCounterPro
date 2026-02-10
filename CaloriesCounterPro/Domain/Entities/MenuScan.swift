@@ -9,6 +9,7 @@ final class MenuScan {
     var dishes: [Dish]
     var restaurant: Restaurant?
     var date: Date
+    var isFavorite: Bool
 
     var totalCalories: Int {
         dishes.reduce(0) { $0 + $1.estimatedCalories }
@@ -20,7 +21,8 @@ final class MenuScan {
         rawText: String = "",
         dishes: [Dish] = [],
         restaurant: Restaurant? = nil,
-        date: Date = Date()
+        date: Date = Date(),
+        isFavorite: Bool = false
     ) {
         self.id = id
         self.restaurantName = restaurantName
@@ -28,5 +30,6 @@ final class MenuScan {
         self.dishes = dishes
         self.restaurant = restaurant
         self.date = date
+        self.isFavorite = isFavorite
     }
 }

@@ -8,6 +8,8 @@ struct RestaurantDetailView: View {
 
     @State private var showEditSheet = false
     @State private var showDeleteAlert = false
+    @State private var showErrorAlert = false
+    @State private var errorAlertMessage = ""
 
     var body: some View {
         List {
@@ -121,6 +123,11 @@ struct RestaurantDetailView: View {
         } message: {
             Text(String(localized: "restaurant.delete_message"))
         }
+        .alert(String(localized: "error.title"), isPresented: $showErrorAlert) {
+            Button(String(localized: "common.ok"), role: .cancel) { }
+        } message: {
+            Text(errorAlertMessage)
+        }
     }
 
     private var sortedScans: [MenuScan] {
@@ -157,13 +164,23 @@ struct RestaurantDetailView: View {
         for scan in scansToDelete {
             modelContext.delete(scan)
         }
-        try? modelContext.save()
+        do {
+            try modelContext.save()
+        } catch {
+            errorAlertMessage = String(localized: "error.delete_scan")
+            showErrorAlert = true
+        }
     }
 
     private func deleteRestaurant() {
         modelContext.delete(restaurant)
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            errorAlertMessage = String(localized: "error.delete_restaurant")
+            showErrorAlert = true
+        }
     }
 }
 

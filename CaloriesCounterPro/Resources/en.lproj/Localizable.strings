@@ -174,3 +174,37 @@
 "scanning.loading" = "Scanning...";
 "scanning.success" = "Scan completed successfully!";
 "scanning.retry" = "Try Again";
+
+/* Error Alerts */
+"error.title" = "Error";
+"error.delete_scan" = "Could not delete the scan. Please try again.";
+"error.delete_all_scans" = "Could not delete all scans. Please try again.";
+"error.delete_restaurant" = "Could not delete the restaurant. Please try again.";
+"error.save_restaurant" = "Could not save the restaurant. Please try again.";
+"error.image_processing" = "Could not process the image.";
+"error.json_parsing" = "Could not process the server response. Please try again.";
+
+/* Onboarding */
+"onboarding.welcome_title" = "Welcome to Calories Counter Pro!";
+"onboarding.welcome_subtitle" = "Scan restaurant menus and get calorie estimates instantly.";
+"onboarding.free_scan_title" = "1 free scan per day";
+"onboarding.free_scan_subtitle" = "Subscribe for unlimited scans and more premium features.";
+"onboarding.privacy_title" = "Your privacy comes first";
+"onboarding.privacy_subtitle" = "Your data is stored only on your device. We don't share your information.";
+"onboarding.get_started" = "Get Started!";
+
+/* Help */
+"help.email_subject" = "Support Calories Counter Pro";
+"help.email_body" = "Hi, I need help with the app.";
+
+/* History */
+"history.delete_all" = "Delete All";
+
+/* Accessibility */
+"accessibility.add_favorite" = "Add to favorites";
+"accessibility.remove_favorite" = "Remove from favorites";
+"accessibility.calorie_gauge" = "Calorie gauge: %d calories";
+"accessibility.scan_dish_count" = "%d dishes detected";
+"accessibility.confidence_high" = "High confidence in estimate";
+"accessibility.confidence_medium" = "Medium confidence in estimate";
+"accessibility.confidence_low" = "Low confidence in estimate";

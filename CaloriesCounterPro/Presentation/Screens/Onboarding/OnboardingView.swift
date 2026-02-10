@@ -12,10 +12,10 @@ struct OnboardingView: View {
                     .scaledToFit()
                     .frame(height: 120)
                     .foregroundColor(.accentColor)
-                Text("¡Bienvenido a Calories Counter Pro!")
+                Text(String(localized: "onboarding.welcome_title"))
                     .font(.title)
                     .bold()
-                Text("Escanea menús de restaurantes y obtén estimaciones de calorías al instante.")
+                Text(String(localized: "onboarding.welcome_subtitle"))
                     .multilineTextAlignment(.center)
             }
             .padding()
@@ -27,10 +27,10 @@ struct OnboardingView: View {
                     .scaledToFit()
                     .frame(height: 120)
                     .foregroundColor(.yellow)
-                Text("1 escaneo gratis al día")
+                Text(String(localized: "onboarding.free_scan_title"))
                     .font(.title2)
                     .bold()
-                Text("Suscríbete para escaneos ilimitados y más funciones premium.")
+                Text(String(localized: "onboarding.free_scan_subtitle"))
                     .multilineTextAlignment(.center)
             }
             .padding()
@@ -42,12 +42,12 @@ struct OnboardingView: View {
                     .scaledToFit()
                     .frame(height: 120)
                     .foregroundColor(.blue)
-                Text("Tu privacidad es lo primero")
+                Text(String(localized: "onboarding.privacy_title"))
                     .font(.title2)
                     .bold()
-                Text("Tus datos se guardan solo en tu dispositivo. No compartimos tu información.")
+                Text(String(localized: "onboarding.privacy_subtitle"))
                     .multilineTextAlignment(.center)
-                Button("¡Empezar!") {
+                Button(String(localized: "onboarding.get_started")) {
                     hasSeenOnboarding = true
                 }
                 .buttonStyle(.borderedProminent)

@@ -48,6 +48,16 @@ struct DishCardView: View {
         }
         .padding(Theme.spacingL)
         .premiumCard()
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(dish.name), \(dish.estimatedCalories) \(String(localized: "calories.unit")), \(confidenceAccessibilityLabel)")
+    }
+
+    private var confidenceAccessibilityLabel: String {
+        switch dish.confidence {
+        case .high: return String(localized: "accessibility.confidence_high")
+        case .medium: return String(localized: "accessibility.confidence_medium")
+        case .low: return String(localized: "accessibility.confidence_low")
+        }
     }
 }
 

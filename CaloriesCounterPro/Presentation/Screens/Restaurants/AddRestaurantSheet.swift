@@ -8,6 +8,7 @@ struct AddRestaurantSheet: View {
     @State private var name: String = ""
     @State private var address: String = ""
     @State private var notes: String = ""
+    @State private var showErrorAlert = false
 
     var body: some View {
         NavigationStack {
@@ -76,6 +77,11 @@ struct AddRestaurantSheet: View {
             }
         }
         .interactiveDismissDisabled(!name.isEmpty || !address.isEmpty || !notes.isEmpty)
+        .alert(String(localized: "error.title"), isPresented: $showErrorAlert) {
+            Button(String(localized: "common.ok"), role: .cancel) { }
+        } message: {
+            Text(String(localized: "error.save_restaurant"))
+        }
     }
 
     private func saveRestaurant() {
@@ -89,8 +95,12 @@ struct AddRestaurantSheet: View {
         )
 
         modelContext.insert(restaurant)
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            showErrorAlert = true
+        }
     }
 }
 

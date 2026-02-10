@@ -10,7 +10,7 @@ struct CalorieGaugeView: View {
                     .stroke(Theme.border.opacity(0.5), lineWidth: 12)
 
                 Circle()
-                    .trim(from: 0, to: min(CGFloat(calories) / 1200, 1))
+                    .trim(from: 0, to: min(CGFloat(calories) / AppConfig.calorieGaugeMax, 1))
                     .stroke(
                         Theme.accent,
                         style: StrokeStyle(lineWidth: 12, lineCap: .round)
@@ -38,13 +38,16 @@ struct CalorieGaugeView: View {
                 .background(Theme.accent.opacity(0.12))
                 .clipShape(Capsule())
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(String(format: NSLocalizedString("accessibility.calorie_gauge", comment: ""), calories))
+        .accessibilityValue(calorieLabel)
     }
 
     private var calorieLabel: String {
         switch calories {
-        case 0..<200: return String(localized: "calories.low")
-        case 200..<500: return String(localized: "calories.moderate")
-        case 500..<800: return String(localized: "calories.high")
+        case AppConfig.CalorieRange.low: return String(localized: "calories.low")
+        case AppConfig.CalorieRange.moderate: return String(localized: "calories.moderate")
+        case AppConfig.CalorieRange.high: return String(localized: "calories.high")
         default: return String(localized: "calories.very_high")
         }
     }

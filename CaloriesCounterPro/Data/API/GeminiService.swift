@@ -105,15 +105,25 @@ final class GeminiService: CalorieEstimationRepository {
             throw ScanError.apiError(String(localized: "error.data_conversion"))
         }
 
-        let rawDishes = try JSONDecoder().decode([RawDishResponse].self, from: dishData)
+        let rawDishes: [RawDishResponse]
+        do {
+            rawDishes = try JSONDecoder().decode([RawDishResponse].self, from: dishData)
+        } catch {
+            throw ScanError.apiError(String(localized: "error.json_parsing"))
+        }
 
-        return rawDishes.map { raw in
-            Dish(
+        guard !rawDishes.isEmpty else {
+            throw ScanError.noDishesFound
+        }
+
+        return rawDishes.compactMap { raw in
+            guard !raw.name.isEmpty, raw.estimatedCalories >= 0 else { return nil }
+            return Dish(
                 name: raw.name,
-                description: raw.description,
-                estimatedCalories: raw.estimatedCalories,
-                confidence: CalorieConfidence(rawValue: raw.confidence) ?? .medium,
-                notes: raw.notes
+                description: raw.description ?? "",
+                estimatedCalories: max(0, raw.estimatedCalories),
+                confidence: CalorieConfidence(rawValue: raw.confidence ?? "media") ?? .medium,
+                notes: raw.notes ?? ""
             )
         }
     }
@@ -121,8 +131,8 @@ final class GeminiService: CalorieEstimationRepository {
 
 private struct RawDishResponse: Codable {
     let name: String
-    let description: String
+    let description: String?
     let estimatedCalories: Int
-    let confidence: String
-    let notes: String
+    let confidence: String?
+    let notes: String?
 }

@@ -7,6 +7,8 @@ struct HistoryView: View {
 
     @Environment(\.modelContext) private var modelContext
     @State private var showDeleteAll = false
+    @State private var showErrorAlert = false
+    @State private var errorAlertMessage = ""
 
     var body: some View {
         NavigationStack {
@@ -50,6 +52,11 @@ struct HistoryView: View {
                 }
             } message: {
                 Text(String(localized: "history.delete_all_confirm"))
+            }
+            .alert(String(localized: "error.title"), isPresented: $showErrorAlert) {
+                Button(String(localized: "common.ok"), role: .cancel) {}
+            } message: {
+                Text(errorAlertMessage)
             }
         }
     }
@@ -116,20 +123,30 @@ struct HistoryView: View {
         for index in offsets {
             modelContext.delete(scans[index])
         }
-        try? modelContext.save()
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+        do {
+            try modelContext.save()
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+        } catch {
+            errorAlertMessage = String(localized: "error.delete_scan")
+            showErrorAlert = true
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        }
     }
 
     private func deleteAllScans() {
         do {
             try modelContext.delete(model: MenuScan.self)
             try modelContext.save()
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         } catch {
-            print("Error deleting all scans: \(error)")
+            errorAlertMessage = String(localized: "error.delete_all_scans")
+            showErrorAlert = true
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
         }
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
     }
 }
 

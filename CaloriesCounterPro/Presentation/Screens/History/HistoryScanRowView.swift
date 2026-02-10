@@ -2,8 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct HistoryScanRowView: View {
-    let scan: MenuScan
-    @State private var isFavorite: Bool = false
+    @Bindable var scan: MenuScan
 
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
@@ -15,6 +14,8 @@ struct HistoryScanRowView: View {
                     .font(.title2)
                     .foregroundStyle(Theme.accent)
             }
+            .accessibilityHidden(true)
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(scan.restaurantName.isEmpty ? String(localized: "history.unknown_restaurant") : scan.restaurantName)
                     .font(.headline)
@@ -32,17 +33,21 @@ struct HistoryScanRowView: View {
                 }
             }
             Spacer()
-            Button(action: { isFavorite.toggle() }) {
-                Image(systemName: isFavorite ? "star.fill" : "star")
-                    .foregroundColor(isFavorite ? .yellow : .gray)
+            Button(action: {
+                scan.isFavorite.toggle()
+            }) {
+                Image(systemName: scan.isFavorite ? "star.fill" : "star")
+                    .foregroundColor(scan.isFavorite ? .yellow : .gray)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(scan.isFavorite ? String(localized: "accessibility.remove_favorite") : String(localized: "accessibility.add_favorite"))
         }
         .padding(.vertical, 10)
         .padding(.horizontal, 4)
         .background(Theme.cardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: Theme.cardShadowColor.opacity(0.08), radius: 2, y: 1)
+        .accessibilityElement(children: .combine)
     }
 }
 

@@ -29,9 +29,9 @@ struct MailView: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
-        vc.setToRecipients(["arzoid29@gmail.com"])
-        vc.setSubject("Soporte Calories Counter Pro")
-        vc.setMessageBody("Hola, necesito ayuda con la app.", isHTML: false)
+        vc.setToRecipients([AppConfig.supportEmail])
+        vc.setSubject(NSLocalizedString("help.email_subject", comment: ""))
+        vc.setMessageBody(NSLocalizedString("help.email_body", comment: ""), isHTML: false)
         vc.mailComposeDelegate = context.coordinator
         return vc
     }

@@ -6,12 +6,12 @@ final class TextRecognitionService: TextRecognitionRepository {
 
     func recognizeText(from image: UIImage) async throws -> String {
         guard let cgImage = image.cgImage else {
-            throw ScanError.apiError("No se pudo procesar la imagen")
+            throw ScanError.apiError(String(localized: "error.image_processing"))
         }
 
         let request = VNRecognizeTextRequest()
         request.recognitionLevel = .accurate
-        request.recognitionLanguages = ["es", "en"]
+        request.recognitionLanguages = AppConfig.ocrLanguages
         request.usesLanguageCorrection = true
 
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])

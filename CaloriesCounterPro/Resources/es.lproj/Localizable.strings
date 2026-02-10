@@ -170,3 +170,37 @@
 "scanning.loading" = "Escaneando...";
 "scanning.success" = "¡Escaneo completado!";
 "scanning.retry" = "Intentar de nuevo";
+
+/* Error Alerts */
+"error.title" = "Error";
+"error.delete_scan" = "No se pudo eliminar el escaneo. Por favor intenta de nuevo.";
+"error.delete_all_scans" = "No se pudieron eliminar todos los escaneos. Por favor intenta de nuevo.";
+"error.delete_restaurant" = "No se pudo eliminar el restaurante. Por favor intenta de nuevo.";
+"error.save_restaurant" = "No se pudo guardar el restaurante. Por favor intenta de nuevo.";
+"error.image_processing" = "No se pudo procesar la imagen.";
+"error.json_parsing" = "No se pudo procesar la respuesta del servidor. Intenta de nuevo.";
+
+/* Onboarding */
+"onboarding.welcome_title" = "¡Bienvenido a Calories Counter Pro!";
+"onboarding.welcome_subtitle" = "Escanea menús de restaurantes y obtén estimaciones de calorías al instante.";
+"onboarding.free_scan_title" = "1 escaneo gratis al día";
+"onboarding.free_scan_subtitle" = "Suscríbete para escaneos ilimitados y más funciones premium.";
+"onboarding.privacy_title" = "Tu privacidad es lo primero";
+"onboarding.privacy_subtitle" = "Tus datos se guardan solo en tu dispositivo. No compartimos tu información.";
+"onboarding.get_started" = "¡Empezar!";
+
+/* Help */
+"help.email_subject" = "Soporte Calories Counter Pro";
+"help.email_body" = "Hola, necesito ayuda con la app.";
+
+/* History */
+"history.delete_all" = "Eliminar Todo";
+
+/* Accessibility */
+"accessibility.add_favorite" = "Agregar a favoritos";
+"accessibility.remove_favorite" = "Quitar de favoritos";
+"accessibility.calorie_gauge" = "Indicador de calorías: %d calorías";
+"accessibility.scan_dish_count" = "%d platos detectados";
+"accessibility.confidence_high" = "Alta confianza en la estimación";
+"accessibility.confidence_medium" = "Confianza media en la estimación";
+"accessibility.confidence_low" = "Baja confianza en la estimación";

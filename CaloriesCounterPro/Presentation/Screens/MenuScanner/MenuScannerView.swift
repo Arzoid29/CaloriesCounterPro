@@ -41,7 +41,8 @@ struct MenuScannerView: View {
             .onChange(of: capturedImage) { _, newImage in
                 if let image = newImage {
                     Task {
-                        await viewModel.processImage(image)
+                        let optimized = image.downsampled()
+                        await viewModel.processImage(optimized)
                         capturedImage = nil
                     }
                 }
@@ -114,7 +115,7 @@ struct MenuScannerView: View {
                         .scaleEffect(animateHeader ? 1.0 : 0.5)
                 }
                 VStack(spacing: Theme.spacingS) {
-                    Text("Calories Counter Pro")
+                    Text(AppConfig.appName)
                         .font(.title.bold())
                     Text(String(localized: "scanner.subtitle"))
                         .font(.subheadline)
