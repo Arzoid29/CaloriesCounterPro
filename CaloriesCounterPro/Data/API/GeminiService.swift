@@ -74,8 +74,9 @@ final class GeminiService: CalorieEstimationRepository {
                 ["role": "user", "parts": [["text": prompt]]]
             ],
             "generationConfig": [
-                "temperature": 0.7,
-                "maxOutputTokens": 4096
+                "temperature": 0.3,
+                "maxOutputTokens": 4096,
+                "responseMimeType": "application/json"
             ]
         ]
 

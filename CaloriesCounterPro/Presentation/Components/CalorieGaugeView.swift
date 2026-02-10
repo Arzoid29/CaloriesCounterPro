@@ -16,7 +16,7 @@ struct CalorieGaugeView: View {
                         style: StrokeStyle(lineWidth: 12, lineCap: .round)
                     )
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut(duration: 0.8), value: progress)
+                    .animation(.easeInOut(duration: 0.8), value: calories)
 
                 VStack(spacing: 2) {
                     Text("\(calories)")

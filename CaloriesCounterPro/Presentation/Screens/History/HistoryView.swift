@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct HistoryView: View {
-    @Query(sort: \MenuScan.scanDate, order: .reverse)
+    @Query(sort: \MenuScan.date, order: .reverse)
     private var scans: [MenuScan]
 
     @Environment(\.modelContext) private var modelContext
@@ -122,10 +122,12 @@ struct HistoryView: View {
     }
 
     private func deleteAllScans() {
-        for scan in scans {
-            modelContext.delete(scan)
+        do {
+            try modelContext.delete(model: MenuScan.self)
+            try modelContext.save()
+        } catch {
+            print("Error deleting all scans: \(error)")
         }
-        try? modelContext.save()
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }

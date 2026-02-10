@@ -84,8 +84,8 @@ struct AddRestaurantSheet: View {
 
         let restaurant = Restaurant(
             name: trimmedName,
-            notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
-            address: address.trimmingCharacters(in: .whitespacesAndNewlines)
+            address: address.trimmingCharacters(in: .whitespacesAndNewlines),
+            notes: notes.trimmingCharacters(in: .whitespacesAndNewlines)
         )
 
         modelContext.insert(restaurant)

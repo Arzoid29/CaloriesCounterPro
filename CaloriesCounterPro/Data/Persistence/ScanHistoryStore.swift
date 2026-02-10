@@ -4,39 +4,42 @@ import SwiftData
 final class ScanHistoryStore: ScanHistoryRepository {
 
     private let modelContainer: ModelContainer
-    private let modelContext: ModelContext
 
     init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
-        self.modelContext = ModelContext(modelContainer)
     }
 
+    @MainActor
     func saveScan(_ scan: MenuScan) async throws {
-        modelContext.insert(scan)
-        try modelContext.save()
+        modelContainer.mainContext.insert(scan)
+        try modelContainer.mainContext.save()
     }
 
-    func fetchAllScans() async throws -> [MenuScan] {
+    @MainActor
+    func getAllScans() async throws -> [MenuScan] {
         let descriptor = FetchDescriptor<MenuScan>(
-            sortBy: [SortDescriptor(\.scanDate, order: .reverse)]
+            sortBy: [SortDescriptor(\MenuScan.date, order: .reverse)]
         )
-        return try modelContext.fetch(descriptor)
+        return try modelContainer.mainContext.fetch(descriptor)
     }
 
+    @MainActor
     func deleteScan(_ scan: MenuScan) async throws {
-        modelContext.delete(scan)
-        try modelContext.save()
+        modelContainer.mainContext.delete(scan)
+        try modelContainer.mainContext.save()
     }
 
+    @MainActor
     func migrateOrphanScans() async throws {
+        let context = modelContainer.mainContext
+
         let descriptor = FetchDescriptor<MenuScan>(
             predicate: #Predicate<MenuScan> { scan in
                 scan.restaurant == nil && !scan.restaurantName.isEmpty
             }
         )
 
-        let orphanScans = try modelContext.fetch(descriptor)
-
+        let orphanScans = try context.fetch(descriptor)
         guard !orphanScans.isEmpty else { return }
 
         let groupedByName = Dictionary(grouping: orphanScans) { scan in
@@ -53,14 +56,14 @@ final class ScanHistoryStore: ScanHistoryRepository {
                 }
             )
 
-            let existingRestaurant = try modelContext.fetch(searchDescriptor).first
+            let existingRestaurant = try context.fetch(searchDescriptor).first
 
             let restaurant: Restaurant
             if let existing = existingRestaurant {
                 restaurant = existing
             } else {
                 restaurant = Restaurant(name: restaurantName)
-                modelContext.insert(restaurant)
+                context.insert(restaurant)
             }
 
             for scan in scans {
@@ -68,6 +71,6 @@ final class ScanHistoryStore: ScanHistoryRepository {
             }
         }
 
-        try modelContext.save()
+        try context.save()
     }
 }

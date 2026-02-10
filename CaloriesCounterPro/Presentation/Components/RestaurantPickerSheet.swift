@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct RestaurantPickerSheet: View {
     let restaurants: [Restaurant]
@@ -73,11 +74,8 @@ struct RestaurantPickerSheet: View {
 
 #Preview {
     RestaurantPickerSheet(
-        restaurants: [
-            Restaurant(name: "La Terraza"),
-            Restaurant(name: "El Rincón"),
-            Restaurant(name: "Pizzería Mario")
-        ],
+        restaurants: [],
         selectedRestaurant: .constant(nil)
     )
+    .modelContainer(for: Restaurant.self, inMemory: true)
 }

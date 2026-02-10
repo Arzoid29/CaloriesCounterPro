@@ -124,7 +124,7 @@ struct RestaurantDetailView: View {
     }
 
     private var sortedScans: [MenuScan] {
-        restaurant.scans.sorted { $0.scanDate > $1.scanDate }
+        restaurant.scans.sorted { $0.date > $1.date }
     }
 
     private var restaurantHeader: some View {

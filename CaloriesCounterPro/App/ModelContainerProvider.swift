@@ -8,7 +8,7 @@ final class ModelContainerProvider {
     let container: ModelContainer
 
     private init() {
-        let schema = Schema([MenuScan.self, Restaurant.self])
+        let schema = Schema([Restaurant.self, MenuScan.self])
         let modelConfiguration = ModelConfiguration(
             schema: schema,
             isStoredInMemoryOnly: false

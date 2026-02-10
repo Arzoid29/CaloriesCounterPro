@@ -5,7 +5,6 @@ import SwiftData
 struct MenuScannerView: View {
     @StateObject private var viewModel: MenuScannerViewModel
     @State private var showCamera = false
-    @State private var showPhotoPicker = false
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var capturedImage: UIImage?
     @State private var animateHeader = false
@@ -17,7 +16,7 @@ struct MenuScannerView: View {
     init() {
         let textRecognition = TextRecognitionService()
         let geminiService = GeminiService(apiKey: AppConfig.geminiAPIKey)
-        let container = try! ModelContainerProvider.shared.container
+        let container = ModelContainerProvider.shared.container
         let scanHistory = ScanHistoryStore(modelContainer: container)
         let restaurantStore = RestaurantStore(modelContainer: container)
         let useCase = ScanMenuUseCase(
@@ -41,7 +40,10 @@ struct MenuScannerView: View {
             }
             .onChange(of: capturedImage) { _, newImage in
                 if let image = newImage {
-                    Task { await viewModel.processImage(image) }
+                    Task {
+                        await viewModel.processImage(image)
+                        capturedImage = nil
+                    }
                 }
             }
             .onChange(of: selectedPhoto) { _, newItem in

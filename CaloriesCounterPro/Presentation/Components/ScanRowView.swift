@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct ScanRowView: View {
     let scan: MenuScan
@@ -38,8 +39,8 @@ struct ScanRowView: View {
     List {
         ScanRowView(scan: MenuScan(
             restaurantName: "La Terraza",
-            rawText: "Pizza Margherita, Pasta Carbonara",
-            dishes: []
+            rawText: "Pizza Margherita, Pasta Carbonara"
         ))
     }
+    .modelContainer(for: MenuScan.self, inMemory: true)
 }

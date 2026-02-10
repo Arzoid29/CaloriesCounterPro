@@ -24,49 +24,45 @@ final class ScanMenuUseCase {
         guard !menuText.isEmpty else {
             throw ScanError.noTextFound
         }
-        let dishes = try await calorieEstimation.estimateCalories(from: menuText)
-        guard !dishes.isEmpty else {
-            throw ScanError.noDishesFound
-        }
-        let resolvedRestaurant = try await resolveRestaurant(
-            provided: restaurant,
-            name: restaurantName
+        return try await buildAndSaveScan(
+            menuText: menuText,
+            restaurantName: restaurantName,
+            restaurant: restaurant
         )
-        let scan = MenuScan(
-            restaurantName: resolvedRestaurant?.name ?? restaurantName,
-            rawText: menuText,
-            dishes: dishes,
-            restaurant: resolvedRestaurant
-        )
-        try await scanHistory.saveScan(scan)
-        return scan
     }
 
     func estimateFromText(_ menuText: String, restaurantName: String = "", restaurant: Restaurant? = nil) async throws -> MenuScan {
+        return try await buildAndSaveScan(
+            menuText: menuText,
+            restaurantName: restaurantName,
+            restaurant: restaurant
+        )
+    }
+
+    private func buildAndSaveScan(menuText: String, restaurantName: String, restaurant: Restaurant?) async throws -> MenuScan {
         let dishes = try await calorieEstimation.estimateCalories(from: menuText)
         guard !dishes.isEmpty else {
             throw ScanError.noDishesFound
         }
+
         let resolvedRestaurant = try await resolveRestaurant(
             provided: restaurant,
             name: restaurantName
         )
+
         let scan = MenuScan(
             restaurantName: resolvedRestaurant?.name ?? restaurantName,
             rawText: menuText,
             dishes: dishes,
             restaurant: resolvedRestaurant
         )
+
         try await scanHistory.saveScan(scan)
         return scan
     }
 
-    private static var defaultRestaurantName: String {
-        return NSLocalizedString("default.restaurant_name", comment: "Default restaurant name for unknown restaurant")
-    }
-
     private func resolveRestaurant(provided: Restaurant?, name: String) async throws -> Restaurant? {
-        if let provided = provided {
+        if let provided {
             return provided
         }
         guard let repo = restaurantRepository else {
@@ -76,7 +72,9 @@ final class ScanMenuUseCase {
         if !trimmedName.isEmpty {
             return try await repo.findRestaurant(byName: trimmedName)
         }
-        return try await repo.findOrCreateRestaurant(name: Self.defaultRestaurantName)
+        return try await repo.findOrCreateRestaurant(
+            name: NSLocalizedString("default.restaurant_name", comment: "")
+        )
     }
 }
 
@@ -96,8 +94,7 @@ enum ScanError: LocalizedError {
         case .cameraNotAvailable:
             return String(localized: "error.no_camera")
         case .apiError(let message):
-            let format = NSLocalizedString("error.api", comment: "API error with message")
-            return String(format: format, message)
+            return String(format: NSLocalizedString("error.api", comment: ""), message)
         case .tooManyRequests:
             return String(localized: "error.too_many_requests")
         }

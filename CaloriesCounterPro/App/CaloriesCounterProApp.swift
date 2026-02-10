@@ -7,6 +7,12 @@ struct CaloriesCounterProApp: App {
     @AppStorage("hasRunRestaurantMigration") private var hasMigrated = false
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
 
+    let container: ModelContainer
+
+    init() {
+        container = ModelContainerProvider.shared.container
+    }
+
     var body: some Scene {
         WindowGroup {
             if hasSeenOnboarding {
@@ -22,13 +28,12 @@ struct CaloriesCounterProApp: App {
                 OnboardingView()
             }
         }
-        .modelContainer(for: [MenuScan.self, Restaurant.self])
+        .modelContainer(container)
     }
 
     private func migrateOrphanScans() async {
+        let store = ScanHistoryStore(modelContainer: container)
         do {
-            let container = try ModelContainerProvider.shared.container
-            let store = ScanHistoryStore(modelContainer: container)
             try await store.migrateOrphanScans()
         } catch {
             print("Error migrating orphan scans: \(error)")

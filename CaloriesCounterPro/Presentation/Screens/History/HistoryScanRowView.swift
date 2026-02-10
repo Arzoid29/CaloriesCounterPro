@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct HistoryScanRowView: View {
     let scan: MenuScan
@@ -18,7 +19,7 @@ struct HistoryScanRowView: View {
                 Text(scan.restaurantName.isEmpty ? String(localized: "history.unknown_restaurant") : scan.restaurantName)
                     .font(.headline)
                     .foregroundColor(Theme.textPrimary)
-                Text(scan.scanDate, style: .date)
+                Text(scan.date, style: .date)
                     .font(.caption)
                     .foregroundColor(Theme.textSecondary)
                 HStack(spacing: 8) {
@@ -46,5 +47,6 @@ struct HistoryScanRowView: View {
 }
 
 #Preview {
-    HistoryScanRowView(scan: MenuScan(restaurantName: "Ejemplo", rawText: "Menu", dishes: [], restaurant: nil))
+    HistoryScanRowView(scan: MenuScan(restaurantName: "Ejemplo", rawText: "Menu"))
+        .modelContainer(for: MenuScan.self, inMemory: true)
 }
